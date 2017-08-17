@@ -14,6 +14,7 @@ use pocketmine\event\player\PlayerExhaustEvent;
 use pocketmine\event\player\PlayerDropItemEvent;
 use pocketmine\event\player\PLayerInteractEvent;
 use pocketmine\event\player\PlayerMoveEvent;
+use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use pocketmine\Player;
@@ -169,5 +170,20 @@ class Main extends PluginBase implements Listener{
 			$event->setCancelled();
 			}
 		}
+	}
+	
+	//Chat Command.
+	public function onPlayerChat(PlayerChatEvent $event) {
+		$player = $event->getPlayer();
+		$config = $this->config->get("Disable-Chat");
+		if($config == "true"){
+			if($player->hasPermission("fantasyplus.chat.bypass")){
+				return true;
+			}else{
+			$event->setCancelled();
+		}
+		
+	}elseif($config == "false"){
+		return true;	
 	}
 }
