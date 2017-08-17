@@ -1,0 +1,47 @@
+---
+name: "FantasyPlus"
+version: 0.1
+api: [3.0.0-ALPHA5]
+author: "Enrick3344"
+main: FantasyPlus\Main
+
+permissions:
+    fantasyplus.command:
+        default: op
+        description: "Allow to use all FantasyPlus commands."
+        children:
+            fantasyplus.command.freeze:
+                default: op
+                description: "Allow to use freeze command."
+            fantasyplus.command.unfreeze:
+                default: op
+                description: "Allow to use unfreeze command."
+            fantasyplus.command.fantasyhelp:
+                default: op
+                description: "Allow to use fantasyhelp command."
+            fantasyplus.command.s:
+                default: op
+                description: "Allow to use s command."
+            fantasyplus.command.c:
+                default: op
+                description: "Allow to use c command."
+    fantasyplus.command.protection:
+        default: op
+        description: "Allow to use protect/protection."
+    fantasyplus.command.bypass:
+        default: op
+        description: "Bypass All Blocking event."
+        children:
+            fantasyplus.break.bypass:
+                default: op
+                description: "bypass the no breaking event."
+            fantasyplus.place.bypass:
+                default: op
+                description: "bypass the no placing event."
+            fantasyplus.drop.bypass:
+                default: op
+                description: "bypass the no dropping event."
+            fantasyplus.freeze.bypass:
+                default: op
+                description: "Bypass Freezing event."
+        
