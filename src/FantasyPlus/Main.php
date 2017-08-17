@@ -160,17 +160,19 @@ class Main extends PluginBase implements Listener{
 	}
 	
 	public function onHurt(EntityDamageEvent $event){
-	$pvp = $this->getConfig()->get("PVP");
-	$player = $event->getDamager();
-	$world = $player->getLevel()->getName();
-	if(in_array($world, $pvp)){
 		if($event->getEntity() instanceof Player && $event instanceof EntityDamageByEntityEvent) {
 			if($event->getDamager() instanceof Player){
-				$event->getDamager()->sendMessage(TF::RED.'You cannot hurt players of this region.');
-                    		$event->setCancelled();
+				$prefix = $this->getConfig()->get("Prefix");
+				$message = $this->getConfig()->get("PVP-Message");
+				$pvp = $this->getConfig()->get("PVP");
+				$player = $event->getDamager();
+				$world = $player->getLevel()->getName();
+				if(in_array($world, $pvp)){
+					$event->getDamager()->sendMessage($this->translateColors($prefix . " " . $message));
+					$event->setCancelled();
+				}
 			}
 		}
-	}
 	}
 	
 	
