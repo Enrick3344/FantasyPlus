@@ -10,6 +10,8 @@ use pocketmine\level\Level;
 use pocketmine\network\protocol\SetTimePacket;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\BlockBreakEvent;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\player\PlayerExhaustEvent;
 use pocketmine\event\player\PlayerDropItemEvent;
 use pocketmine\event\player\PLayerInteractEvent;
@@ -157,6 +159,22 @@ class Main extends PluginBase implements Listener{
 		}
 	}
 	
+	public function onHurt(EntityDamageEvent $event){
+		if($event->getEntity() instanceof Player && $event instanceof EntityDamageByEntityEvent) {
+			if($event->getDamager() instanceof Player){
+				$prefix = $this->getConfig()->get("Prefix");
+				$message = $this->getConfig()->get("PVP-Message");
+				$pvp = $this->getConfig()->get("PVP");
+				$player = $event->getDamager();
+				$world = $player->getLevel()->getName();
+				if(in_array($world, $pvp)){
+					$event->getDamager()->sendMessage($this->translateColors($prefix . " " . $message));
+					$event->setCancelled();
+				}
+			}
+		}
+	}
+	
 	
 	//Freeze Command.
 	public function onMove(PlayerMoveEvent $event) {
@@ -188,4 +206,6 @@ class Main extends PluginBase implements Listener{
 		return true;	
 	}
 	}
+	
+	
 }

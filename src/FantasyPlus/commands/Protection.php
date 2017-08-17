@@ -103,13 +103,33 @@ class Protection extends Command{
 								$this->plugin->getConfig()->set("Drop", $config);
 								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Drop on Level " . $level);
+						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+						}elseif($args[1] == "pvp") {  //PVP
+							$world = $sender->getLevel()->getName();
+							$place = $this->plugin->getConfig()->get("PVP");
+							if(!$sender instanceof Player){
+								$sender->sendMessage("§5>§c Please run this command in-game.");
+								break;
+							}
+							if(in_array($world, $place)){
+								$sender->sendMessage("§5>§c PVP Is Already Disabled On This Level.");
+								break;
+							}
+								$level = $sender->getLevel()->getName();
+								$array = $this->plugin->getConfig()->get("PVP");
+								$config = $array;
+								$config[] = $sender->getLevel()->getName();
+								$this->plugin->getConfig()->set("PVP", $config);
+								$this->plugin->getConfig()->save();
+								$sender->sendMessage("§5>§d You've sucessfully Disabled PVP on Level " . $level);
+			    
 						}else{
-							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|break>");
+							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
 							return false;
 						}
 					return true;
 				}else{
-					$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|break>");
+					$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
 					return false;
 				}
 			}
@@ -213,16 +233,40 @@ class Protection extends Command{
 							}else{
 								$sender->sendMessage("§5>§c Items Dropping Is Already Enabled On This Level.");
 							}
+					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+					}elseif($args[1] == "pvp"){  //PVP
+							$world = $sender->getLevel()->getName();
+							$drop = $this->plugin->getConfig()->get("PVP");
+							if(!$sender instanceof Player){
+								$sender->sendMessage("§5>§c Please run this command in-game.");
+								break;
+							}	
+							if(in_array($world, $pvp)){
+								$level = $sender->getLevel()->getName();
+								$array = $this->plugin->getConfig()->get("PVP");
+								$rm = $sender->getLevel()->getName();
+								$config = [];
+								foreach($array as $value) {
+									if($value != $rm) {
+										$config[] = $value;
+									}
+								}
+								$this->plugin->getConfig()->set("PVP", $config);
+								$this->plugin->getConfig()->save();
+								$sender->sendMessage("§5>§d You've sucessfully Enabled PVP on Level " . $level);
+							}else{
+								$sender->sendMessage("§5>§c PVP Is Already Enabled On This Level.");
+							}
 						}
 					}else{
-							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|break>");
+							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
 							return false;
 						}
 				}
 				break;
 			}
 		}else{
-			$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|break>");
+			$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
 			return false;
 		}
 		return true;
