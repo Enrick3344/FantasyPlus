@@ -22,7 +22,7 @@ class Creative extends Command{
         $this->plugin = $plugin;
 	}
 	
-	public function execute(CommandSender $sender, $label, array $args){
+	public function execute(CommandSender $sender, string $label, array $args) : bool{
 		 if(!($sender instanceof Player)){
                     $sender->sendMessage("§5>§c Please run this command in-game.");
                     return true;
