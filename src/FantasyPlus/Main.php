@@ -36,6 +36,10 @@ class Main extends PluginBase implements Listener{
 	public function onEnable(){
 		$this->loadCommand();
 		$this->loadConfig();
+		if(!file_exists($this->getDataFolder() . "config.yml")){
+     			 @mkdir($this->getDataFolder());
+     			 file_put_contents($this->getDataFolder()."config.yml", $this->getResource("config.yml"));
+   		 }
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		$this->getLogger()->notice(TextFormat::AQUA . "FantasyPlus Enabled!");
 	}
@@ -61,23 +65,6 @@ class Main extends PluginBase implements Listener{
 	}
 	
 	public function loadConfig(){
-		if(!is_dir($this->getDataFolder())) mkdir($this->getDataFolder());
-		$this->config = new Config($this->getDataFolder()."config.yml", Config::YAML, array(
-			'Prefix' => "§7[§dFantasyProtection§7]",
-			'Hunger' => array(
-		           'world'),
-			'Break' => array(
-		          'world'),
-			'Break-Message' => "§cYou are not aloud to break blocks here!",
-			'Place' => array(
-		          'world'),
-			'Place-Message' => "§cYou are not aloud to place blocks here!",
-			'Drop' => array(
-			     'world'),
-			'Drop-Message' => "§cYou are not aloud to drop items or blocks here!",
-			'Freeze-Popup-Message' => "§l§5>§r§d You Are Frozen!"
-			));
-		$this->config->save();
 		$this->freeze = new Config($this->getDataFolder()."freeze.yml", Config::YAML, array(
 			'Frozen' => []));
 		$this->freeze->save();
