@@ -30,7 +30,7 @@ class Protection extends Command{
                     if(count($args) == 2) {
 						if($args[1] == "place") {  //PLACE
 							$world = $sender->getLevel()->getName();
-							$place = $this->plugin->config->get("Place");
+							$place = $this->plugin->getConfig()->get("Place");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
@@ -40,16 +40,16 @@ class Protection extends Command{
 								break;
 							}
 								$level = $sender->getLevel()->getName();
-								$array = $this->plugin->config->get("Place");
+								$array = $this->plugin->getConfig()->get("Place");
 								$config = $array;
 								$config[] = $sender->getLevel()->getName();
-								$this->plugin->config->set("Place", $config);
-								$this->plugin->config->save();
+								$this->plugin->getConfig()->set("Place", $config);
+								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Block Placing on Level " . $level);
 						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
 						}elseif($args[1] == "break"){  //BREAK
 							$world = $sender->getLevel()->getName();
-							$break = $this->plugin->config->get("Break");
+							$break = $this->plugin->getConfig()->get("Break");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
@@ -59,16 +59,16 @@ class Protection extends Command{
 								break;
 							}
 								$level = $sender->getLevel()->getName();
-								$array = $this->plugin->config->get("Break");
+								$array = $this->plugin->getConfig()->get("Break");
 								$config = $array;
 								$config[] = $sender->getLevel()->getName();
-								$this->plugin->config->set("Break", $config);
-								$this->plugin->config->save();
+								$this->plugin->getConfig()->set("Break", $config);
+								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Block Breaking on Level " . $level);
 						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
 						}elseif($args[1] == "hunger"){  //HUNGER 
 							$world = $sender->getLevel()->getName();
-							$hunger = $this->plugin->config->get("Hunger");
+							$hunger = $this->plugin->getConfig()->get("Hunger");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
@@ -78,16 +78,16 @@ class Protection extends Command{
 								break;
 							}
 								$level = $sender->getLevel()->getName();
-								$array = $this->plugin->config->get("Hunger");
+								$array = $this->plugin->getConfig()->get("Hunger");
 								$config = $array;
 								$config[] = $sender->getLevel()->getName();
-								$this->plugin->config->set("Hunger", $config);
-								$this->plugin->config->save();
+								$this->plugin->getConfig()->set("Hunger", $config);
+								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Hunger on Level " . $level);
 						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
 						}elseif($args[1] == "drop"){  //DROP
 							$world = $sender->getLevel()->getName();
-							$drop = $this->plugin->config->get("Drop");
+							$drop = $this->plugin->getConfig()->get("Drop");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
@@ -97,11 +97,11 @@ class Protection extends Command{
 								break;
 							}
 								$level = $sender->getLevel()->getName();
-								$array = $this->plugin->config->get("Drop");
+								$array = $this->plugin->getConfig()->get("Drop");
 								$config = $array;
 								$config[] = $sender->getLevel()->getName();
-								$this->plugin->config->set("Drop", $config);
-								$this->plugin->config->save();
+								$this->plugin->getConfig()->set("Drop", $config);
+								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Drop on Level " . $level);
 						}else{
 							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|break>");
@@ -120,14 +120,14 @@ class Protection extends Command{
 					if(count($args) == 2) {
 						if($args[1] == "place") {  //PLACE
 							$world = $sender->getLevel()->getName();
-							$place = $this->plugin->config->get("Place");
+							$place = $this->plugin->getConfig()->get("Place");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}
 							if(in_array($world, $place)){
 								$level = $sender->getLevel()->getName();
-								$array = $this->plugin->config->get("Place");
+								$array = $this->plugin->getConfig()->get("Place");
 								$rm = $sender->getLevel()->getName();
 								$config = [];
 								foreach($array as $value) {
@@ -135,8 +135,8 @@ class Protection extends Command{
 										$config[] = $value;
 									}
 								}
-								$this->plugin->config->set("Place", $config);
-								$this->plugin->config->save();
+								$this->plugin->getConfig()->set("Place", $config);
+								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Enabled Block Placing on Level " . $level);
 							}else{
 								$sender->sendMessage("§5>§c Block Placing Is Already Enabled On This Level.");
@@ -144,14 +144,14 @@ class Protection extends Command{
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 					}elseif($args[1] == "break"){  //BREAK
 							$world = $sender->getLevel()->getName();
-							$break = $this->plugin->config->get("Break");
+							$break = $this->plugin->getConfig()->get("Break");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}	
 							if(in_array($world, $break)){
 								$level = $sender->getLevel()->getName();
-								$array = $this->plugin->config->get("Break");
+								$array = $this->plugin->getConfig()->get("Break");
 								$rm = $sender->getLevel()->getName();
 								$config = [];
 								foreach($array as $value) {
@@ -159,8 +159,8 @@ class Protection extends Command{
 										$config[] = $value;
 									}
 								}
-								$this->plugin->config->set("Break", $config);
-								$this->plugin->config->save();
+								$this->plugin->getConfig()->set("Break", $config);
+								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Enabled Block Breaking on Level " . $level);
 							}else{
 								$sender->sendMessage("§5>§c Block Breaking Is Already Enabled On This Level.");
@@ -168,14 +168,14 @@ class Protection extends Command{
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 					}elseif($args[1] == "hunger"){  //HUNGER 
 							$world = $sender->getLevel()->getName();
-							$hunger = $this->plugin->config->get("Hunger");
+							$hunger = $this->plugin->getConfig()->get("Hunger");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}	
 							if(in_array($world, $hunger)){
 								$level = $sender->getLevel()->getName();
-								$array = $this->plugin->config->get("Place");
+								$array = $this->plugin->getConfig()->get("Place");
 								$rm = $sender->getLevel()->getName();
 								$config = [];
 								foreach($array as $value) {
@@ -183,8 +183,8 @@ class Protection extends Command{
 										$config[] = $value;
 									}
 								}
-								$this->plugin->config->set("Hunger", $config);
-								$this->plugin->config->save();
+								$this->plugin->getConfig()->set("Hunger", $config);
+								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Enabled Hunger on Level " . $level);
 							}else{
 								$sender->sendMessage("§5>§c Hunger Is Already Enabled On This Level.");
@@ -192,14 +192,14 @@ class Protection extends Command{
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 					}elseif($args[1] == "drop"){  //DROP
 							$world = $sender->getLevel()->getName();
-							$drop = $this->plugin->config->get("Drop");
+							$drop = $this->plugin->getConfig()->get("Drop");
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
 								break;
 							}	
 							if(in_array($world, $drop)){
 								$level = $sender->getLevel()->getName();
-								$array = $this->plugin->config->get("Drop");
+								$array = $this->plugin->getConfig()->get("Drop");
 								$rm = $sender->getLevel()->getName();
 								$config = [];
 								foreach($array as $value) {
@@ -207,8 +207,8 @@ class Protection extends Command{
 										$config[] = $value;
 									}
 								}
-								$this->plugin->config->set("Drop", $config);
-								$this->plugin->config->save();
+								$this->plugin->getConfig()->set("Drop", $config);
+								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Enabled items Dropping on Level " . $level);
 							}else{
 								$sender->sendMessage("§5>§c Items Dropping Is Already Enabled On This Level.");
