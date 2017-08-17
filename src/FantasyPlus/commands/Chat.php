@@ -21,7 +21,7 @@ class Chat extends Command{
         $this->plugin = $plugin;
 	}
   
-	public function execute(CommandSender $sender, $label, array $args){
+	public function execute(CommandSender $sender, string $label, array $args) : bool{
 		if(isset($args[0])){
 			switch(strtolower($args[0])){
         case "on":{
