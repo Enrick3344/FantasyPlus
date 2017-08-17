@@ -28,9 +28,9 @@ permissions:
             fantasyplus.command.c:
                 default: op
                 description: "Allow to use c command."
-    fantasyplus.command.protection:
-        default: op
-        description: "Allow to use protect/protection."
+            fantasyplus.command.protection:
+                default: op
+                description: "Allow to use protect/protection."
     fantasyplus.command.bypass:
         default: false
         description: "Bypass All event."
