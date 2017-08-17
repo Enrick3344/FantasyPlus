@@ -16,4 +16,7 @@ Drop-Message: §cYou are not aloud to drop items or blocks here!
 
 # Freeze Command Configuration!
 Freeze-Popup-Message: §l§5>§r§d You Are Frozen!
+
+# Chat Command Configuration!
+Disable-Chat: false
 ...

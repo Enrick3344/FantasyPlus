@@ -14,12 +14,14 @@ use pocketmine\event\player\PlayerExhaustEvent;
 use pocketmine\event\player\PlayerDropItemEvent;
 use pocketmine\event\player\PLayerInteractEvent;
 use pocketmine\event\player\PlayerMoveEvent;
+use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 
 //plugin Files.
+use FantasyPlus\commands\Chat;
 use FantasyPlus\commands\Creative;
 use FantasyPlus\commands\Spectator;
 use FantasyPlus\commands\Survival;
@@ -50,6 +52,7 @@ class Main extends PluginBase implements Listener{
 	
 	public function loadCommand(){
 		$commands = [
+			"chat" => new Chat($this),
 			"timestuck" => new TimeStuck($this),
 			"s" => new Survival($this),
 			"c" => new Creative($this),
@@ -169,5 +172,20 @@ class Main extends PluginBase implements Listener{
 			$event->setCancelled();
 			}
 		}
+	}
+	
+	//Chat Command.
+	public function onPlayerChat(PlayerChatEvent $event) {
+		$player = $event->getPlayer();
+		$config = $this->getConfig()->get("Disable-Chat");
+		if($config == "true"){
+			if($player->hasPermission("fantasyplus.chat.bypass")){
+				return true;
+			}else{
+			$event->setCancelled();
+		}
+	}elseif($config == "false"){
+		return true;	
+	}
 	}
 }

@@ -10,6 +10,9 @@ permissions:
         default: op
         description: "Allow to use all FantasyPlus commands."
         children:
+            fantasyplus.command.chat:
+                default: op
+                description: "Allow to use chat command."
             fantasyplus.command.freeze:
                 default: op
                 description: "Allow to use freeze command."
@@ -29,8 +32,8 @@ permissions:
         default: op
         description: "Allow to use protect/protection."
     fantasyplus.command.bypass:
-        default: op
-        description: "Bypass All Blocking event."
+        default: false
+        description: "Bypass All event."
         children:
             fantasyplus.break.bypass:
                 default: op
@@ -44,4 +47,7 @@ permissions:
             fantasyplus.freeze.bypass:
                 default: op
                 description: "Bypass Freezing event."
+            fantasyplus.chat.bypass:
+                default: false
+                description: "Bypass the Disabled Chat."
         
