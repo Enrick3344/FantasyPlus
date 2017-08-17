@@ -103,6 +103,26 @@ class Protection extends Command{
 								$this->plugin->getConfig()->set("Drop", $config);
 								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Drop on Level " . $level);
+						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
+						}elseif($args[1] == "pvp") {  //PVP
+							$world = $sender->getLevel()->getName();
+							$place = $this->plugin->getConfig()->get("PVP");
+							if(!$sender instanceof Player){
+								$sender->sendMessage("§5>§c Please run this command in-game.");
+								break;
+							}
+							if(in_array($world, $place)){
+								$sender->sendMessage("§5>§c PVP Is Already Disabled On This Level.");
+								break;
+							}
+								$level = $sender->getLevel()->getName();
+								$array = $this->plugin->getConfig()->get("PVP");
+								$config = $array;
+								$config[] = $sender->getLevel()->getName();
+								$this->plugin->getConfig()->set("PVP", $config);
+								$this->plugin->getConfig()->save();
+								$sender->sendMessage("§5>§d You've sucessfully Disabled PVP on Level " . $level);
+			    
 						}else{
 							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|break>");
 							return false;
