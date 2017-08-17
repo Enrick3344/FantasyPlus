@@ -23,7 +23,15 @@ class FantasyPlus extends Command{
 	
 	private function sendHelp(CommandSender $sender){
         $commands = [
-            "/fantasyplus <help/info>" => "Shows the help and info of this plugin"
+            "/fantasyplus <help/info>" => "Shows the help and info of this plugin",
+	    "/freeze <player>" => "Freezes a player mouvement",
+	    "/unfreeze <player>" => "Unfreezes the player mouvements",
+	    "/protect <enable|disable> <break|place|hunger|drop|pvp>" => "Protection Command. Disable is to set the flag to off so break to off. etcc..",
+	    "/c" => "Sets yourself in Creative mode",
+            "/s" => "Sets yourself in Survival mode",
+	    "/spc" => "Sets yourself in Spectator mode",
+	    "/chat <on|off>" => "Set chat to on or off!",
+	    "/timestuck <level> <day|night>" => "stucks the time to on or off till server reboot."
         ];
         $sender->sendMessage("§5-§d=§bFantasyHelp Commands§d=§5-");
         foreach($commands as $cmd => $description){
