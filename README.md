@@ -1,6 +1,7 @@
 # FantasyPlus
 
 A Magical Plugin that adds Awesome Commands and Epic Feature!
+Supports API3.0.0-ALPHA7
 
 ### Features
  - Protection:
