@@ -32,7 +32,7 @@ permissions:
         default: op
         description: "Allow to use protect/protection."
     fantasyplus.command.bypass:
-        default: op
+        default: false
         description: "Bypass All event."
         children:
             fantasyplus.break.bypass:
