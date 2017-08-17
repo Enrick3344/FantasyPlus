@@ -177,7 +177,7 @@ class Main extends PluginBase implements Listener{
 	//Chat Command.
 	public function onPlayerChat(PlayerChatEvent $event) {
 		$player = $event->getPlayer();
-		$config = $this->config->get("Disable-Chat");
+		$config = $this->getConfig()->get("Disable-Chat");
 		if($config == "true"){
 			if($player->hasPermission("fantasyplus.chat.bypass")){
 				return true;
