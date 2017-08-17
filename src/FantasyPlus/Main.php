@@ -161,7 +161,7 @@ class Main extends PluginBase implements Listener{
 	
 	public function onHurt(EntityDamageEvent $event){
 	$pvp = $this->getConfig()->get("PVP");
-	$player = $event->getPlayer();
+	$player = $event->getDamager();
 	$world = $player->getLevel()->getName();
 	if(in_array($world, $pvp)){
 		if($event->getEntity() instanceof Player && $event instanceof EntityDamageByEntityEvent) {
