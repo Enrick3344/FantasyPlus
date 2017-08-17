@@ -21,6 +21,7 @@ use pocketmine\utils\TextFormat;
 
 //plugin Files.
 use FantasyPlus\commands\Creative;
+use FantasyPlus\commands\Spectator;
 use FantasyPlus\commands\Survival;
 use FantasyPlus\commands\TimeStuck;
 use FantasyPlus\commands\FantasyPlus;
@@ -52,6 +53,7 @@ class Main extends PluginBase implements Listener{
 			"timestuck" => new TimeStuck($this),
 			"s" => new Survival($this),
 			"c" => new Creative($this),
+			"spc" => new Spectator($this),
 			"fantasyplus" => new FantasyPlus($this),
 			"protection" => new Protection($this),
 			"freeze" => new Freeze($this),
