@@ -127,7 +127,7 @@ class Main extends PluginBase implements Listener{
 				return true;
 			}else{
 			$event->setCancelled();
-			$player->sendMessage($prefix . " " . $message);
+			$player->sendMessage($this->translateColors($prefix . " " . $message));
 			}
 		}
 	}
@@ -144,7 +144,7 @@ class Main extends PluginBase implements Listener{
 				return true;
 			}else{
 			$event->setCancelled();
-			$player->sendMessage($prefix . " " . $message);
+			$player->sendMessage($this->translateColors($prefix . " " . $message));
 			}
 		}
 	}
@@ -161,7 +161,7 @@ class Main extends PluginBase implements Listener{
 				return true;
 			}else{
 			$event->setCancelled();
-			$player->sendMessage($prefix . " " . $message);
+			$player->sendMessage($this->translateColors($prefix . " " . $message));
 			}
 		}
 	}
