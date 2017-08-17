@@ -25,17 +25,17 @@ class Chat extends Command{
 		if(isset($args[0])){
 			switch(strtolower($args[0])){
         case "on":{
-          $this->plugin->config->get("Disable-Chat");
-          $this->plugin->config->set("Disable-Chat", false);
-          $this->plugin->config->save();
+          $this->plugin->getConfig->get("Disable-Chat");
+          $this->plugin->getConfig->set("Disable-Chat", false);
+          $this->plugin->getConfig->save();
           $sender->sendMessage("§l§5>§r§d Chat Has Been Enabled!");
           $this->plugin->getLogger()->notice(TextFormat::LIGHT_PURPLE . "Chat Has Been Enabled!");
         }
         break;
         case "off":{
-          $this->plugin->config->get("Disable-Chat");
-          $this->plugin->config->set("Disable-Chat", true);
-          $this->plugin->config->save();
+          $this->plugin->getConfig->get("Disable-Chat");
+          $this->plugin->getConfig->set("Disable-Chat", true);
+          $this->plugin->getConfig->save();
           $sender->sendMessage("§l§5>§r§d Chat Has Been Disabled!");
           $this->plugin->getLogger()->notice(TextFormat::LIGHT_PURPLE . "Chat Has Been Disabled!");
         }
