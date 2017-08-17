@@ -182,8 +182,8 @@ class Main extends PluginBase implements Listener{
 			}else{
 			$event->setCancelled();
 		}
-		
 	}elseif($config == "false"){
 		return true;	
+	}
 	}
 }
