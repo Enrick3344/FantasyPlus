@@ -10,6 +10,9 @@ permissions:
         default: op
         description: "Allow to use all FantasyPlus commands."
         children:
+            fantasyplus.command.chat:
+                default: op
+                description: "Allow to use chat command."
             fantasyplus.command.freeze:
                 default: op
                 description: "Allow to use freeze command."
