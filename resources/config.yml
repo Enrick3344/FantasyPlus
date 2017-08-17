@@ -1,5 +1,11 @@
 ---
+# FantasyPlus Configuration! By Enrick3344
+# You Can Use & For The Color Codes.
+
+# The Prefix That Will Be Used For The Protection Part Of The Plugin.
 Prefix: §7[§dFantasyProtection§7]
+
+# Protection Configuration!
 Hunger: []
 Break: []
 Break-Message: §cYou are not aloud to break blocks here!
