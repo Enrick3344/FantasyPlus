@@ -21,6 +21,7 @@ use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 
 //plugin Files.
+use FantasyPlus\commands\Chat;
 use FantasyPlus\commands\Creative;
 use FantasyPlus\commands\Spectator;
 use FantasyPlus\commands\Survival;
@@ -51,6 +52,7 @@ class Main extends PluginBase implements Listener{
 	
 	public function loadCommand(){
 		$commands = [
+			"chat" => new Chat($this),
 			"timestuck" => new TimeStuck($this),
 			"s" => new Survival($this),
 			"c" => new Creative($this),
