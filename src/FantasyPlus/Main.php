@@ -74,7 +74,8 @@ class Main extends PluginBase implements Listener{
 			'Place-Message' => "§cYou are not aloud to place blocks here!",
 			'Drop' => array(
 			     'world'),
-			'Drop-Message' => "§cYou are not aloud to drop items or blocks here!"
+			'Drop-Message' => "§cYou are not aloud to drop items or blocks here!",
+			'Freeze-Popup-Message' => "§l§5>§r§d You Are Frozen!"
 			));
 		$this->config->save();
 		$this->freeze = new Config($this->getDataFolder()."freeze.yml", Config::YAML, array(
@@ -170,13 +171,14 @@ class Main extends PluginBase implements Listener{
 	//Freeze Command.
 	public function onMove(PlayerMoveEvent $event) {
 		$freeze =  $this->freeze->get("Frozen");
+		$message = $this->getConfig()->get("Freeze-Popup-Message");
 		$name = $event->getPlayer()->getName();
 		$player = $event->getPlayer();
 		if(in_array($name, $freeze)){
 			if($player->hasPermission("fantasyplus.freeze.bypass")){
 				return true;
 			}else{
-			$event->getPlayer()->sendPopup("§l§5>§r§b You Are Frozen!");
+			$event->getPlayer()->sendPopup($message);
 			$event->setCancelled();
 			}
 		}
