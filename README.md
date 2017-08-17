@@ -30,3 +30,31 @@ A Magical Plugin that adds Awesome Commands and Epic Feature!
   Chat: /chat <on|off>
   ```
   
+  ### Configuration
+  ```
+  ---
+# FantasyPlus Configuration! By Enrick3344
+# You Can Use & For The Color Codes.
+
+# The Prefix That Will Be Used For The Protection Part Of The Plugin.
+Prefix: §7[§dFantasyProtection§7]
+
+# Protection Configuration!
+Hunger: []
+Break: []
+Break-Message: §cYou are not aloud to break blocks here!
+Place: []
+Place-Message: §cYou are not aloud to place blocks here!
+Drop: []
+Drop-Message: §cYou are not aloud to drop items or blocks here!
+PVP: []
+PVP-Message: §cYou are not aloud to PVP here!
+
+# Freeze Command Configuration!
+Freeze-Popup-Message: §l§5>§r§d You Are Frozen!
+
+# Chat Command Configuration!
+Disable-Chat: false
+...
+```
+  
