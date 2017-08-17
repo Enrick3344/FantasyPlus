@@ -21,7 +21,7 @@ class TimeStuck extends Command{
         $this->plugin = $plugin;
 	}
 
-	public function execute(CommandSender $sender, $label, array $args){
+	public function execute(CommandSender $sender, string $label, array $args) : bool{
         if(isset($args[0])){
             if(isset($args[1]) and $args[1] === "day"){
 				if(!$this->plugin->getServer()->isLevelGenerated($args[0])){
