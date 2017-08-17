@@ -10,6 +10,8 @@ use pocketmine\level\Level;
 use pocketmine\network\protocol\SetTimePacket;
 use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\BlockBreakEvent;
+use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\player\PlayerExhaustEvent;
 use pocketmine\event\player\PlayerDropItemEvent;
 use pocketmine\event\player\PLayerInteractEvent;
@@ -157,6 +159,20 @@ class Main extends PluginBase implements Listener{
 		}
 	}
 	
+	public function onHurt(EntityDamageEvent $event){
+	$pvp = $this->getConfig()->get("PVP");
+	$player = $event->getPlayer();
+	$world = $player->getLevel()->getName();
+	if(in_array($world, $pvp)){
+		if($event->getEntity() instanceof Player && $event instanceof EntityDamageByEntityEvent) {
+			if($event->getDamager() instanceof Player){
+				$event->getDamager()->sendMessage(TF::RED.'You cannot hurt players of this region.');
+                    		$event->setCancelled();
+			}
+		}
+	}
+	}
+	
 	
 	//Freeze Command.
 	public function onMove(PlayerMoveEvent $event) {
@@ -188,4 +204,6 @@ class Main extends PluginBase implements Listener{
 		return true;	
 	}
 	}
+	
+	
 }
