@@ -2,7 +2,7 @@
 name: "FantasyPlus"
 version: 0.1
 api: [3.0.0-ALPHA7]
-author: "Enrick3344"
+author: "Enrick3344, EoflaOE"
 main: FantasyPlus\Main
 
 permissions:
