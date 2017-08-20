@@ -1,5 +1,27 @@
 <?php 
 
+/*
+ * 
+ *  _____           _                  ____  _           
+ * |  ___|_ _ _ __ | |_ __ _ ___ _   _|  _ \| |_   _ ___ 
+ * | |_ / _` | '_ \| __/ _` / __| | | | |_) | | | | / __|
+ * |  _| (_| | | | | || (_| \__ \ |_| |  __/| | |_| \__ \
+ * |_|  \__,_|_| |_|\__\__,_|___/\__, |_|   |_|\__,_|___/
+ * 				 |___/    
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ *
+ * @author Enrick Fortier
+ * 
+ * Github: https://github.com/Enrick3344
+ * Version: v0.1
+ *
+*/ 
+
 namespace FantasyPlus\commands;
 
 use pocketmine\command\Command;
