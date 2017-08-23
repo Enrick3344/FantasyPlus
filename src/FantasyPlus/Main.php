@@ -34,11 +34,13 @@ use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\event\block\BlockBreakEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
+use pocketmine\event\entity\EntityTeleportEvent;
 use pocketmine\event\player\PlayerExhaustEvent;
 use pocketmine\event\player\PlayerDropItemEvent;
 use pocketmine\event\player\PLayerInteractEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerChatEvent;
+use pocketmine\event\player\PlayerCommandPreProcessEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
 use pocketmine\Player;
@@ -228,6 +230,27 @@ class Main extends PluginBase implements Listener{
 		return true;	
 	}
 	}
+	
+	//NoTPA Command.
+	public function onEntityTeleport(EntityTeleportEvent $event){
+		$entity = $event->getEntity();
+		$location = $event->getTo();
+			if($entity instanceof Player){
+				foreach($this->getServer()->getOnlinePlayers() as $player){
+		  			if($location->x == $player->x && $location->y == $player->y && $location->z == $player->z){
+					  $name = $player->getPlayer()->getName();
+						$config = $this->getConfig()->get("NoTPA");
+						   if(in_array($name, $config)){
+               						 if(!$entity->getPlayer()->hasPermission("fantasyplus.bypass.notpa")){				
+                						$event->setCancelled(true);
+								$entity->getPlayer()->sendMessage("§l§dNotice§5>§r§c " . $entity->getPlayer()->getName() . " Doesn't Accept TP.");
+							 }
+						   }
+					}
+				}
+			}
+	}
+								 
 	
 	
 }
