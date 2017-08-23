@@ -5,7 +5,7 @@ namespace eofla\osserver;
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
 use pocketmine\command\{Command, CommandSender};
-use FantasyPlus\Main
+use FantasyPlus\Main;
 
 class Os extends Command {
 	
