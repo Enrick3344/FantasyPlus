@@ -49,6 +49,7 @@ use pocketmine\utils\TextFormat;
 //plugin Files.
 use FantasyPlus\commands\Chat;
 use FantasyPlus\commands\Creative;
+use FantasyPlus\commands\Notpa;
 use FantasyPlus\commands\Spectator;
 use FantasyPlus\commands\Survival;
 use FantasyPlus\commands\TimeStuck;
@@ -80,6 +81,7 @@ class Main extends PluginBase implements Listener{
 		$commands = [
 			"chat" => new Chat($this),
 			"timestuck" => new TimeStuck($this),
+			"notpa" => new Notpa($this),
 			"s" => new Survival($this),
 			"c" => new Creative($this),
 			"spc" => new Spectator($this),
