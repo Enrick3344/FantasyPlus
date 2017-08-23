@@ -57,6 +57,7 @@ use FantasyPlus\commands\FantasyPlus;
 use FantasyPlus\commands\Protection;
 use FantasyPlus\commands\Freeze;
 use FantasyPlus\commands\Unfreeze;
+use FantasyPlus\commands\Os;
 
 class Main extends PluginBase implements Listener{
 	
@@ -88,7 +89,8 @@ class Main extends PluginBase implements Listener{
 			"fantasyplus" => new FantasyPlus($this),
 			"protection" => new Protection($this),
 			"freeze" => new Freeze($this),
-			"unfreeze" => new Unfreeze($this)
+			"unfreeze" => new Unfreeze($this),
+			"os" => new Os($this)
 		];
 		foreach($commands as $name => $class){
 			$this->getServer()->getCommandMap()->register($name, $class);
