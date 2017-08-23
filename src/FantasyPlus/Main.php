@@ -241,7 +241,7 @@ class Main extends PluginBase implements Listener{
 					  $name = $player->getPlayer()->getName();
 						$config = $this->getConfig()->get("NoTPA");
 						   if(in_array($name, $config)){
-               						 if(!$entity->getPlayer()->hasPermission("fantasyplus.bypass.notpa")){				
+               						 if(!$entity->getPlayer()->hasPermission("fantasyplus.notpa.bypass")){				
                 						$event->setCancelled(true);
 								$entity->getPlayer()->sendMessage("§l§dNotice§5>§r§c " . $entity->getPlayer()->getName() . " Doesn't Accept TP.");
 							 }
