@@ -87,5 +87,6 @@ class Notpa extends Command{
 			return false;
                 }
 	  }
+	  return true;
   }
 }
