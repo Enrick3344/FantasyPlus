@@ -34,6 +34,9 @@ permissions:
             fantasyplus.command.notpa:
                 default: op
                 description: "Toggles on and off the teleport event for yourself"
+            fantasyplus.command.os:
+                default: op
+                description: "Allow to use the os command."
     fantasyplus.command.bypass:
         default: false
         description: "Bypass All event."
