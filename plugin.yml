@@ -31,6 +31,9 @@ permissions:
             fantasyplus.command.protection:
                 default: op
                 description: "Allow to use protect/protection."
+            fantasyplus.command.notpa:
+                default: op
+                description: "Toggles on and off the teleport event for yourself"
     fantasyplus.command.bypass:
         default: false
         description: "Bypass All event."
@@ -50,4 +53,7 @@ permissions:
             fantasyplus.chat.bypass:
                 default: false
                 description: "Bypass the Disabled Chat."
+            fantasyplus.notpa.bypass:
+                default: false
+                description: "Bypass the No Teleport Event!"
         
