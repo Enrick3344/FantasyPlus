@@ -21,4 +21,7 @@ Freeze-Popup-Message: §l§5>§r§d You Are Frozen!
 
 # Chat Command Configuration!
 Disable-Chat: false
+
+# NoTPA Command Configuration!
+NoTPA: []
 ...
