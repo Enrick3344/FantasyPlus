@@ -26,6 +26,7 @@ namespace FantasyPlus\commands;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\utils\TextFormat;
+use pocketmine\Player;
 //Plugins Files.
 use FantasyPlus\Main;
 
@@ -43,6 +44,10 @@ class Notpa extends Command{
 	}
   
   public function execute(CommandSender $sender, string $label, array $args) : bool{
+	  if(!$sender instanceof Player){
+			$sender->sendMessage("§5>§c Please run this command in-game.");
+			return false;
+		}
       if(!isset($args[0])){
           switch($args[0]){
             case "on":{
