@@ -9,6 +9,12 @@ use FantasyPlus\Main;
 
 class Os extends Command {
 	
+   public function __construct(Main $plugin){
+        parent::__construct("os", "Displays OS information", null, ["os"]);
+        $this->setPermission("fantasyplus.command.os");
+        $this->plugin = $plugin;
+   }
+   
 	/**
 	 * execute()
 	 *
