@@ -53,7 +53,7 @@ class Notpa extends Command{
 	      return true;
       }
 	  if($args[0] == "on"){
-              $name = $sender->getPlayer()->getName();
+              $name = strtolower($sender->getPlayer()->getName());
               $notpa = $this->plugin->getConfig()->get("NoTPA");
                 if(in_array($name, $notpa)){
          			    $sender->sendMessage("§l§dNotice§5>§r§c NoTpa Is Already Enabled For You!");
@@ -67,7 +67,7 @@ class Notpa extends Command{
                  $sender->sendMessage("§l§5>§r§b You have Successfully Enabled NoTpa! Players Cannot Teleport To You!");
              }
 	  if($args[0] == "off"){
-              $name = $sender->getPlayer()->getName();
+              $name = strtolower($sender->getPlayer()->getName());
               $notpa = $this->plugin->getConfig()->get("NoTPA");
               	if(in_array($name, $notpa)){
                   $array = $this->plugin->getConfig()->get("NoTPA");
