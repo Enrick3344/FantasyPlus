@@ -65,6 +65,7 @@ class Notpa extends Command{
 		 $this->plugin->getConfig()->set("NoTPA", $config);
 		 $this->plugin->getConfig()->save();
                  $sender->sendMessage("§l§5>§r§b You have Successfully Enabled NoTpa! Players Cannot Teleport To You!");
+		  return true;
              }
 	  if($args[0] == "off"){
               $name = strtolower($sender->getPlayer()->getName());
