@@ -16,6 +16,7 @@ Supports API3.0.0-ALPHA7
  - Enable/Disable Chat Command
  - New Creative/Survival/Spectator Commands
  - Time Stucking Command (From EoflaEo)
+ - New No Teleport command!
  - More Coming Soon!
  
 ### Commands
@@ -29,6 +30,7 @@ Supports API3.0.0-ALPHA7
   Spectator: /spc
   TimeStuck: /timestuck <level> <day|night>
   Chat: /chat <on|off>
+  NoTpa: /notpa <on|off>
   ```
   
   ### Configuration
@@ -56,6 +58,9 @@ Freeze-Popup-Message: §l§5>§r§d You Are Frozen!
 
 # Chat Command Configuration!
 Disable-Chat: false
+
+# NoTPA Command Configuration!
+NoTPA: []
 ...
 ```
   
