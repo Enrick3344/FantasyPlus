@@ -1,6 +1,6 @@
 <?php
 
-namespace eofla\osserver;
+namespace FantasyPlus\commands;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat;
