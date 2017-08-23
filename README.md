@@ -17,6 +17,7 @@ Supports API3.0.0-ALPHA7
  - New Creative/Survival/Spectator Commands
  - Time Stucking Command (From EoflaEo)
  - New No Teleport command!
+ - New OS Command
  - More Coming Soon!
  
 ### Commands
@@ -31,6 +32,7 @@ Supports API3.0.0-ALPHA7
   TimeStuck: /timestuck <level> <day|night>
   Chat: /chat <on|off>
   NoTpa: /notpa <on|off>
+  OS: /os
   ```
   
   ### Configuration
