@@ -80,8 +80,11 @@ class Notpa extends Command{
 		 	}
 		  $this->plugin->getConfig()->set("NoTPA", $config);
 		  $this->plugin->getConfig()->save();
+			
+			return true;
                 }else{
                   $sender->sendMessage("§l§dNotice§5>§r§c NoTpa Is Already Disabled For You!");
+			return false;
                 }
 	  }
   }
