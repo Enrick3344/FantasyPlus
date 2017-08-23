@@ -53,7 +53,7 @@ class Notpa extends Command{
 	      return true;
       }
 	  if($args[0] == "on"){
-              $name = strtolower($sender->getPlayer()->getName());
+              $name = $sender->getPlayer()->getName();
               $notpa = $this->plugin->getConfig()->get("NoTPA");
                 if(in_array($name, $notpa)){
          			    $sender->sendMessage("§l§dNotice§5>§r§c NoTpa Is Already Enabled For You!");
@@ -68,7 +68,7 @@ class Notpa extends Command{
 		  return true;
              }
 	  if($args[0] == "off"){
-              $name = strtolower($sender->getPlayer()->getName());
+              $name = $sender->getPlayer()->getName();
               $notpa = $this->plugin->getConfig()->get("NoTPA");
               	if(in_array($name, $notpa)){
                   $array = $this->plugin->getConfig()->get("NoTPA");
@@ -81,8 +81,6 @@ class Notpa extends Command{
 		 	}
 		  $this->plugin->getConfig()->set("NoTPA", $config);
 		  $this->plugin->getConfig()->save();
-			
-			return true;
                 }else{
                   $sender->sendMessage("§l§dNotice§5>§r§c NoTpa Is Already Disabled For You!");
 			return false;
