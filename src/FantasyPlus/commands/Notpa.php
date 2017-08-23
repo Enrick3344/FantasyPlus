@@ -49,45 +49,40 @@ class Notpa extends Command{
 			return false;
 		}
       if(!isset($args[0])){
-          switch($args[0]){
-            case "on":{
+	      $sender->sendMessage("§l§dUsage§5>§r§b /notpa <on|off>");
+	      return true;
+      }
+	  if($args[0] == "on"){
               $name = $sender->getPlayer()->getName();
               $notpa = $this->plugin->getConfig()->get("NoTPA");
                 if(in_array($name, $notpa)){
          			    $sender->sendMessage("§l§dNotice§5>§r§c NoTpa Is Already Enabled For You!");
-         			    break;
-         		    }
-								  $array = $this->plugin->getConfig()->get("NoTPA");
-								  $config = $array;
-								  $config[] = $sender->getPlayer()->getName();
-								  $this->plugin->getConfig()->set("NoTPA", $config);
-								  $this->plugin->getConfig()->save();
-                  $sender->sendMessage("§l§5>§r§b You have Successfully Enabled NoTpa! Players Cannot Teleport To You!");
+         			    return false;
+         	 }
+		 $array = $this->plugin->getConfig()->get("NoTPA");
+		 $config = $array;
+		 $config[] = $sender->getPlayer()->getName();
+		 $this->plugin->getConfig()->set("NoTPA", $config);
+		 $this->plugin->getConfig()->save();
+                 $sender->sendMessage("§l§5>§r§b You have Successfully Enabled NoTpa! Players Cannot Teleport To You!");
              }
-			  break;
-             case "off":{
+	  if($args[0] == "off"){
               $name = $sender->getPlayer()->getName();
               $notpa = $this->plugin->getConfig()->get("NoTPA");
-                if(in_array($name, $notpa)){
+              	if(in_array($name, $notpa)){
                   $array = $this->plugin->getConfig()->get("NoTPA");
-								  $rm = $sender->getPlayer()->getName();
-								  $config = [];
-								    foreach($array as $value) {
-									    if($value != $rm) {
-										    $config[] = $value;
-									    }
-								    }
-								$this->plugin->getConfig()->set("NoTPA", $config);
-								$this->plugin->getConfig()->save();
+		  $rm = $sender->getPlayer()->getName();
+		  $config = [];
+			foreach($array as $value) {
+		 		if($value != $rm) {
+		 			$config[] = $value;
+		 		}
+		 	}
+		  $this->plugin->getConfig()->set("NoTPA", $config);
+		  $this->plugin->getConfig()->save();
                 }else{
                   $sender->sendMessage("§l§dNotice§5>§r§c NoTpa Is Already Disabled For You!");
                 }
-             }
-              
-          }
-        }else{
-          $sender->sendMessage("§l§dUsage§5>§r§b /notpa <on|off>");
-					return false;
-        }
-      }
+	  }
+  }
 }
