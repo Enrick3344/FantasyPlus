@@ -63,9 +63,9 @@ class Unfreeze extends Command{
 									}
 									$this->plugin->freeze->set("Frozen", $frozen);
 									$this->plugin->freeze->save();
-									$sender->sendMessage("§5>§d You Have Sucessfully Unfroze " . $victim);
+									$sender->sendMessage("§5>§d You Have Sucessfully Unfroze " . $name);
 								}else{
-									$sender->sendMessage("§5>§c ".$victim." Isn't Frozen!");
+									$sender->sendMessage("§5>§c ".$name." Isn't Frozen!");
 								}
 					
 						}
