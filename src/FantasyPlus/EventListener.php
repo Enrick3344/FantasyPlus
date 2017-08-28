@@ -44,11 +44,14 @@ use pocketmine\utils\TextFormat;
 
 class EventListener implements Listener{
 
-	/** @var Main */
-	private $plugin;
-  
-	public function __construct(Main $plugin){
-		$this->plugin = $plugin;
+    /** @var Main */
+    private $plugin;
+	
+    /**
+     * @param Main $plugin
+    */
+    public function __construct(Main $plugin){
+        $this->plugin = $plugin;
 	}
   
   
