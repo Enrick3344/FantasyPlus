@@ -99,7 +99,7 @@ class Main extends PluginBase{
 	}
 	
 	public function loadConfig(){
-		$this->freeze = new Config($this->getDataFolder()."freeze.yml", Config::YAML, array(
+		$this->freeze = new Config($this->getDataFolder() . "freeze.yml", Config::YAML, array(
 			'Frozen' => []));
 		$this->freeze->save();
 	}
