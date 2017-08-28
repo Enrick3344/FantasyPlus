@@ -53,14 +53,14 @@ class Freeze extends Command{
 							$freeze = $this->plugin->freeze->get("Frozen");
 							$name = $player->getName();
 							if(in_array($name, $freeze)) {
-								$sender->sendMessage("§5>§c " . $victim . " Is Already Frozen!");
+								$sender->sendMessage("§5>§c " . $name . " Is Already Frozen!");
 							}else{
 								$array = $this->plugin->freeze->get("Frozen");
 								$frozen = $array;
 								$frozen[] = $player->getName();
 								$this->plugin->freeze->set("Frozen", $frozen);
 								$this->plugin->freeze->save();
-								$sender->sendMessage("§5>§d You have Successfully Froze " . $player->getName());
+								$sender->sendMessage("§5>§d You have Successfully Froze " . $name);
 							}
 						}
 					}else{
