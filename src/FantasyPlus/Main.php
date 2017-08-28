@@ -70,6 +70,7 @@ class Main extends PluginBase{
 		if(!file_exists($this->getDataFolder() . "config.yml")){
      			 @mkdir($this->getDataFolder());
      			 file_put_contents($this->getDataFolder()."config.yml", $this->getResource("config.yml"));
+			 file_put_contents($this->getDataFolder()."freeze.yml", $this->getResource("freeze.yml"));
    		 }
 		$this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
 		$this->getLogger()->notice(TextFormat::AQUA . "FantasyPlus Enabled!");
