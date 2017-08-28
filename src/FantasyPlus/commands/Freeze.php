@@ -60,7 +60,7 @@ class Freeze extends Command{
 								$frozen[] = $player->getName();
 								$this->plugin->freeze->set("Frozen", $frozen);
 								$this->plugin->freeze->save();
-								$sender->sendMessage("§5>§d You have Successfully Froze " . $player->getName());
+								$sender->sendMessage("§5>§d You have Successfully Froze " . $player);
 							}
 						}
 					}else{
