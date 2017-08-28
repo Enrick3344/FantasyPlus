@@ -67,18 +67,18 @@ class EventListener implements Listener{
 public function onExhaust(PlayerExhaustEvent $event){
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
-		$hunger = $this->getConfig()->get("Hunger");
+		$hunger = $this->plugin->getConfig()->get("Hunger");
         if(in_array($world, $hunger)){
              $event->setCancelled(true);
 	    }
 	}
 	
 	public function onBreak(BlockBreakEvent $event){
-		$prefix = $this->getConfig()->get("Prefix");
-		$message = $this->getConfig()->get("Break-Message");
+		$prefix = $this->plugin->getConfig()->get("Prefix");
+		$message = $this->plugin->getConfig()->get("Break-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
-		$break = $this->getConfig()->get("Break");
+		$break = $this->plugin->getConfig()->get("Break");
 		
 		if(in_array($world, $break)){
 			if($player->hasPermission("fantasyplus.break.bypass")){
@@ -91,11 +91,11 @@ public function onExhaust(PlayerExhaustEvent $event){
 	}
 	
 	public function onPlace(BlockPlaceEvent $event){
-		$prefix = $this->getConfig()->get("Prefix");
-		$message = $this->getConfig()->get("Place-Message");
+		$prefix = $this->plugin->getConfig()->get("Prefix");
+		$message = $this->plugin->getConfig()->get("Place-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
-		$place = $this->getConfig()->get("Place");
+		$place = $this->plugin->getConfig()->get("Place");
 		
 		if(in_array($world, $place)){
 			if($player->hasPermission("fantasyplus.place.bypass")){
@@ -108,11 +108,11 @@ public function onExhaust(PlayerExhaustEvent $event){
 	}
 	
 	public function onDrop(PlayerDropItemEvent $event){
-		$prefix = $this->getConfig()->get("Prefix");
-		$message = $this->getConfig()->get("Drop-Message");
+		$prefix = $this->plugin->getConfig()->get("Prefix");
+		$message = $this->plugin->getConfig()->get("Drop-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
-		$drop = $this->getConfig()->get("Drop");
+		$drop = $this->plugin->getConfig()->get("Drop");
 		
 		if(in_array($world, $drop)){
 			if($player->hasPermission("fantasyplus.drop.bypass")){
@@ -127,9 +127,9 @@ public function onExhaust(PlayerExhaustEvent $event){
 	public function onHurt(EntityDamageEvent $event){
 		if($event->getEntity() instanceof Player && $event instanceof EntityDamageByEntityEvent) {
 			if($event->getDamager() instanceof Player){
-				$prefix = $this->getConfig()->get("Prefix");
-				$message = $this->getConfig()->get("PVP-Message");
-				$pvp = $this->getConfig()->get("PVP");
+				$prefix = $this->plugin->getConfig()->get("Prefix");
+				$message = $this->plugin->getConfig()->get("PVP-Message");
+				$pvp = $this->plugin->getConfig()->get("PVP");
 				$player = $event->getDamager();
 				$world = $player->getLevel()->getName();
 				if(in_array($world, $pvp)){
@@ -150,7 +150,7 @@ public function onExhaust(PlayerExhaustEvent $event){
 */
 public function onMove(PlayerMoveEvent $event) {
 		$freeze =  $this->plugin->freeze->get("Frozen");
-		$message = $this->getConfig()->get("Freeze-Popup-Message");
+		$message = $this->plugin->getConfig()->get("Freeze-Popup-Message");
 		$name = $event->getPlayer()->getName();
 		$player = $event->getPlayer();
 		if(in_array($name, $freeze)){
@@ -173,7 +173,7 @@ public function onMove(PlayerMoveEvent $event) {
 */
  public function onPlayerChat(PlayerChatEvent $event) {
 		$player = $event->getPlayer();
-		$config = $this->getConfig()->get("Disable-Chat");
+		$config = $this->plugin->getConfig()->get("Disable-Chat");
 		if($config == "true"){
 			if($player->hasPermission("fantasyplus.chat.bypass")){
 				return true;
@@ -201,7 +201,7 @@ public function onEntityTeleport(EntityTeleportEvent $event){
 				foreach($this->getServer()->getOnlinePlayers() as $player){
 		  			if($location->x == $player->x && $location->y == $player->y && $location->z == $player->z){
 					  $name = $player->getPlayer()->getName();
-						$config = $this->getConfig()->get("NoTPA");
+						$config = $this->plugin->getConfig()->get("NoTPA");
 						   if(in_array($name, $config)){
                						 if(!$entity->getPlayer()->hasPermission("fantasyplus.notpa.bypass")){				
                 						$event->setCancelled(true);
