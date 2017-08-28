@@ -47,6 +47,7 @@ use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 
 //plugin Files.
+use FantasyPlus\EventListener;
 use FantasyPlus\commands\Chat;
 use FantasyPlus\commands\Creative;
 use FantasyPlus\commands\Notpa;
@@ -59,7 +60,7 @@ use FantasyPlus\commands\Freeze;
 use FantasyPlus\commands\Unfreeze;
 use FantasyPlus\commands\Os;
 
-class Main extends PluginBase implements Listener{
+class Main extends PluginBase{
 	
 	public $frozens = [];
 	
