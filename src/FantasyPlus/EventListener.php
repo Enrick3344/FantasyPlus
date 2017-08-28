@@ -149,7 +149,7 @@ public function onExhaust(PlayerExhaustEvent $event){
  * `--'    `--'    `----' `----'`-----' `----' 
 */
 public function onMove(PlayerMoveEvent $event) {
-		$freeze =  $this->freeze->get("Frozen");
+		$freeze =  $this->plugin->freeze->get("Frozen");
 		$message = $this->getConfig()->get("Freeze-Popup-Message");
 		$name = $event->getPlayer()->getName();
 		$player = $event->getPlayer();
