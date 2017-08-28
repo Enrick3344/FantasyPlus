@@ -41,6 +41,8 @@ use pocketmine\event\player\PlayerCommandPreProcessEvent;
 use pocketmine\Server;
 use pocketmine\Player;
 use pocketmine\utils\TextFormat;
+// Plugin Files.
+use FantasyPlus\Main;
 
 class EventListener implements Listener{
 
