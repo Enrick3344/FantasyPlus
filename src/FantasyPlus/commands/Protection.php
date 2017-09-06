@@ -100,16 +100,21 @@ class Protection extends Command{
 							$world = $sender->getLevel()->getName();
 							$lock = $this->plugin->getConfig()->get("Lock");
 							if(in_array($world, $lock)){
-								$sender->sendMessage("§5>§c Lock Is Already Enabled On This Level.");
-								break;
-							}
 								$level = $sender->getLevel()->getName();
 								$array = $this->plugin->getConfig()->get("Lock");
-								$config = $array;
-								$config[] = $sender->getLevel()->getName();
+								$rm = $sender->getLevel()->getName();
+								$config = [];
+								foreach($array as $value) {
+									if($value != $rm) {
+										$config[] = $value;
+									}
+								}
 								$this->plugin->getConfig()->set("Lock", $config);
 								$this->plugin->getConfig()->save();
-								$sender->sendMessage("§5>§d You've sucessfully Enabled Lock on Level " . $level);
+								$sender->sendMessage("§5>§d You've sucessfully Disabled Lock on Level " . $level);
+							}else{
+								$sender->sendMessage("§5>§c Lock Is Already Disabled On This Level.");
+							}
 						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 						}elseif($args[1] == "hunger"){  //HUNGER 
 							if(!$sender instanceof Player){
@@ -239,21 +244,16 @@ class Protection extends Command{
 							$world = $sender->getLevel()->getName();
 							$lock = $this->plugin->getConfig()->get("Lock");
 							if(in_array($world, $lock)){
+								$sender->sendMessage("§5>§c Lock Is Already Enabled On This Level.");
+								break;
+							}
 								$level = $sender->getLevel()->getName();
 								$array = $this->plugin->getConfig()->get("Lock");
-								$rm = $sender->getLevel()->getName();
-								$config = [];
-								foreach($array as $value) {
-									if($value != $rm) {
-										$config[] = $value;
-									}
-								}
+								$config = $array;
+								$config[] = $sender->getLevel()->getName();
 								$this->plugin->getConfig()->set("Lock", $config);
 								$this->plugin->getConfig()->save();
-								$sender->sendMessage("§5>§d You've sucessfully Disabled Lock on Level " . $level);
-							}else{
-								$sender->sendMessage("§5>§c Lock Is Already Disabled On This Level.");
-							}
+								$sender->sendMessage("§5>§d You've sucessfully Enabled Lock on Level " . $level);
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
 					}elseif($args[1] == "hunger"){  //HUNGER 
 							if(!$sender instanceof Player){
