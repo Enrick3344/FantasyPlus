@@ -91,7 +91,31 @@ class Protection extends Command{
 								$this->plugin->getConfig()->set("Break", $config);
 								$this->plugin->getConfig()->save();
 								$sender->sendMessage("§5>§d You've sucessfully Disabled Block Breaking on Level " . $level);
-						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
+						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+						}elseif($args[1] == "lock") {  //LOCK
+							if(!$sender instanceof Player){
+								$sender->sendMessage("§5>§c Please run this command in-game.");
+								break;
+							}
+							$world = $sender->getLevel()->getName();
+							$lock = $this->plugin->getConfig()->get("Lock");
+							if(in_array($world, $lock)){
+								$level = $sender->getLevel()->getName();
+								$array = $this->plugin->getConfig()->get("Lock");
+								$rm = $sender->getLevel()->getName();
+								$config = [];
+								foreach($array as $value) {
+									if($value != $rm) {
+										$config[] = $value;
+									}
+								}
+								$this->plugin->getConfig()->set("Lock", $config);
+								$this->plugin->getConfig()->save();
+								$sender->sendMessage("§5>§d You've sucessfully Disabled Lock on Level " . $level);
+							}else{
+								$sender->sendMessage("§5>§c Lock Is Already Disabled On This Level.");
+							}
+						///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 						}elseif($args[1] == "hunger"){  //HUNGER 
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
@@ -150,12 +174,12 @@ class Protection extends Command{
 								$sender->sendMessage("§5>§d You've sucessfully Disabled PVP on Level " . $level);
 			    
 						}else{
-							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
+							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|lock|pvp|break>");
 							return false;
 						}
 					return true;
 				}else{
-					$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
+					$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|lock|pvp|break>");
 					return false;
 				}
 			}
@@ -212,6 +236,25 @@ class Protection extends Command{
 								$sender->sendMessage("§5>§c Block Breaking Is Already Enabled On This Level.");
 							}
 					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+					}elseif($args[1] == "lock"){  //LOCK
+							if(!$sender instanceof Player){
+								$sender->sendMessage("§5>§c Please run this command in-game.");
+								break;
+							}
+							$world = $sender->getLevel()->getName();
+							$lock = $this->plugin->getConfig()->get("Lock");
+							if(in_array($world, $lock)){
+								$sender->sendMessage("§5>§c Lock Is Already Enabled On This Level.");
+								break;
+							}
+								$level = $sender->getLevel()->getName();
+								$array = $this->plugin->getConfig()->get("Lock");
+								$config = $array;
+								$config[] = $sender->getLevel()->getName();
+								$this->plugin->getConfig()->set("Lock", $config);
+								$this->plugin->getConfig()->save();
+								$sender->sendMessage("§5>§d You've sucessfully Enabled Lock on Level " . $level);
+					///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////			
 					}elseif($args[1] == "hunger"){  //HUNGER 
 							if(!$sender instanceof Player){
 								$sender->sendMessage("§5>§c Please run this command in-game.");
@@ -285,14 +328,14 @@ class Protection extends Command{
 							}
 						}
 					}else{
-							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
+							$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|lock|pvp|break>");
 							return false;
 						}
 				}
 				break;
 			}
 		}else{
-			$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|pvp|break>");
+			$sender->sendMessage("§l§dUsage§5>§r§b /protect <enable|disable> <drop|hunger|place|lock|pvp|break>");
 			return false;
 		}
 		return true;

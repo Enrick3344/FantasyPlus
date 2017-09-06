@@ -75,34 +75,42 @@ public function onExhaust(PlayerExhaustEvent $event){
 	
 	public function onBreak(BlockBreakEvent $event){
 		$prefix = $this->plugin->getConfig()->get("Prefix");
-		$message = $this->plugin->getConfig()->get("Break-Message");
+		$breakmessage = $this->plugin->getConfig()->get("Break-Message");
+		$lockmessage = $this->plugin->getConfig()->get("Lock-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
 		$break = $this->plugin->getConfig()->get("Break");
-		
-		if(in_array($world, $break)){
+		$lock = $this->plugin->getConfig()->get("Lock");
+		if(in_array($world, $lock)){
+			$event->setCancelled(true);
+			$player->sendMessage($this->plugin->translateColors($prefix . " " . $lockmessage));
+		}elseif(in_array($world, $break)){
 			if($player->hasPermission("fantasyplus.break.bypass")){
 				return true;
 			}else{
 			$event->setCancelled();
-			$player->sendMessage($this->plugin->translateColors($prefix . " " . $message));
+			$player->sendMessage($this->plugin->translateColors($prefix . " " . $breakmessage));
 			}
 		}
 	}
 	
 	public function onPlace(BlockPlaceEvent $event){
 		$prefix = $this->plugin->getConfig()->get("Prefix");
-		$message = $this->plugin->getConfig()->get("Place-Message");
+		$placemessage = $this->plugin->getConfig()->get("Place-Message");
+		$lockmessage = $this->plugin->getConfig()->get("Lock-Message");
 		$player = $event->getPlayer();
 		$world = $player->getLevel()->getName();
 		$place = $this->plugin->getConfig()->get("Place");
-		
-		if(in_array($world, $place)){
+		$lock = $this->plugin->getConfig()->get("Lock");
+		if(in_array($world, $lock)){
+			$event->setCancelled(true);
+			$player->sendMessage($this->plugin->translateColors($prefix . " " . $lockmessage));
+		}elseif(in_array($world, $place)){
 			if($player->hasPermission("fantasyplus.place.bypass")){
 				return true;
 			}else{
 			$event->setCancelled();
-			$player->sendMessage($this->plugin->translateColors($prefix . " " . $message));
+			$player->sendMessage($this->plugin->translateColors($prefix . " " . $placemessage));
 			}
 		}
 	}
