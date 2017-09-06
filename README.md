@@ -10,6 +10,7 @@ Supports API3.0.0-ALPHA7
   - Block Placing
   - Block Breaking
   - Hunger
+  - Lock Option
   - Customizable prefix and Message
  
  - Freeze/Unfreeze Command
@@ -22,7 +23,7 @@ Supports API3.0.0-ALPHA7
  
 ### Commands
   ```
-  Protection: /protect <enable|disable> <drop|hunger|place|break>
+  Protection: /protect <enable|disable> <drop|hunger|place|pvp|lock|break>
   Freeze: /freeze <player>
   Unfreeze: /unfreeze <player>
   FantasyPlus: /fantasyplus <help|info>
@@ -47,13 +48,15 @@ Prefix: §7[§dFantasyProtection§7]
 # Protection Configuration!
 Hunger: []
 Break: []
-Break-Message: §cYou are not aloud to break blocks here!
+Break-Message: §cYou are not allowed to break blocks here!
 Place: []
-Place-Message: §cYou are not aloud to place blocks here!
+Place-Message: §cYou are not allowed to place blocks here!
+Lock: []
+Lock-Message: §cYou are not allowed to do that here!
 Drop: []
-Drop-Message: §cYou are not aloud to drop items or blocks here!
+Drop-Message: §cYou are not allowed to drop items or blocks here!
 PVP: []
-PVP-Message: §cYou are not aloud to PVP here!
+PVP-Message: §cYou are not allowed to PVP here!
 
 # Freeze Command Configuration!
 Freeze-Popup-Message: §l§5>§r§d You Are Frozen!
