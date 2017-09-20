@@ -1,7 +1,7 @@
 ---
 name: "FantasyPlus"
 version: 0.1
-api: [3.0.0-ALPHA7]
+api: [3.0.0-ALPHA7, 3.0.0-ALPHA8]
 author: "Enrick3344, EoflaOE"
 main: FantasyPlus\Main
 
