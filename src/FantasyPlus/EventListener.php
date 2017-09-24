@@ -206,7 +206,7 @@ public function onEntityTeleport(EntityTeleportEvent $event){
 		$entity = $event->getEntity();
 		$location = $event->getTo();
 			if($entity instanceof Player){
-				foreach($this->getServer()->getOnlinePlayers() as $player){
+				foreach($this->plugin->getServer()->getOnlinePlayers() as $player){
 		  			if($location->x == $player->x && $location->y == $player->y && $location->z == $player->z){
 					  $name = $player->getPlayer()->getName();
 						$config = $this->plugin->getConfig()->get("NoTPA");
